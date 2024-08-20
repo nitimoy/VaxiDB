@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+    background-color: #edf2f5;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    background: url('../img/hero-bg.jpeg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 0;
+    color: white;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.hero-section .btn {
+    font-size: 1.2em;
+    padding: 10px 20px;
+}
+
+/* Card Styles */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 1rem 2rem; /* Make navbar more wide */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+    font-size: 1.2rem; /* Make menu items bigger */
+    margin-right: 1rem;
+}
+
+/* Active nav link styling */
+.navbar-dark .navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #fff !important;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 15px; /* Add curvature */
+    padding: 0.5rem 1rem; /* Add padding */
+}
+
+/* Form Styles */
+.form-group label {
+    font-weight: bold;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgb(31, 151, 151);
+    color: #000;
+    padding: 5px 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+footer a {
+    color: #000;
+}
+
+/* Section Styles */
+.about-section,
+.contact-section {
+    padding: 60px 0;
+}
+
+/* Full Screen Div Styles */
+.full-screen-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    overflow: auto;
+    display: none;
+}
+
+/* Button Styles */
+.btn-primary,
+.btn-secondary {
+    border-radius: 25px;
+}
+
+/* Add margin to the bottom of the main content to create space above the footer */
+.container {
+    margin-bottom: 50px; /* Adjust the value as needed */
+}
+
+/* Cyan background color for header and footer */
+.bg-cyan {
+    background-color: rgb(31, 151, 151) !important;
+}
+
+/* Ensure text color is suitable on cyan background */
+.navbar-dark .navbar-nav .nav-link {
+    color: #f3ebeb !important;
+}
+
+.navbar-dark .navbar-brand {
+    color: #f3ebeb !important;
+}
+
+hr.hr-text {
+    position: relative;
+      border: none;
+      height: 1px;
+      background: #999;
+  }
+  
+  hr.hr-text::before {
+      content: attr(data-content);
+      display: inline-block;
+      background: #fff;
+      font-weight: bold;
+      font-size: 0.85rem;
+      color: #999;
+      border-radius: 30rem;
+      padding: 0.2rem 2rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }

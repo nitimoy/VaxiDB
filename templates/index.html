@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center text-white bg-primary py-5">
+    <div class="container">
+        <h1 class="text-primary font-weight-bold">VaxiDB: Potential Antigens and Vaccine Candidate Database</h1>
+        <p class="text-primary font-weight-bold">Welcome to Therapeutic and Diagnostic Research</p>
+        <a href="{{ url_for('search') }}" class="btn btn-primary">Get Started</a>
+    </div>
+</section>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">About VaxiDB</h2>
+    <p><span class="h6">VaxiDB</span> is a freely available database that provides detailed information about predicted potential vaccine candidates. Our database includes information on highly probable, probable, and experimentally reported antigens.</p>
+    <p>Pathogens often have hundreds or even thousands of proteins, but only a select few are reported as antigens or vaccine candidates. In the era of bioinformatics, we leverage advanced tools to predict potential vaccine candidates against various pathogens. Notably, some of these predicted antigens have been experimentally validated. However, many proteins have never been reported as vaccine candidates, presenting opportunities for novel vaccine development.</p>
+    <p>Users can explore these novel candidates to develop efficient and innovative vaccines against different pathogens. The antigens listed as highly probable, probable, and/or experimentally reported can be used for:</p>
+    <ul>
+        <li>Development of recombinant proteins</li>
+        <li>Immunoassays</li>
+        <li>Diagnostic kits</li>
+        <li>Monoclonal antibody (mAb) therapy</li>
+        <li>Other research purposes</li>
+    </ul>
+    <h3>Key Features</h3>
+    <ul>
+        <li>Extensive Database: Comprehensive data on predicted and experimentally reported antigens.</li>
+        <li>Bioinformatics Tools: Advanced prediction tools to identify potential vaccine candidates.</li>
+        <li>Research Support: Resources for therapeutic and diagnostic research applications.</li>
+    </ul>
+</div>
+{% endblock %}

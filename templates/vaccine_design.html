@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section text-center text-white bg-primary py-5">
+    <div class="container">
+        <h1 class="text-primary font-weight-bold">Vaccine Designing</h1>
+        <p class="text-primary font-weight-bold">Select Your Preferred Options</p>
+    </div>
+</section>
+
+<div class="container mt-5">
+    <form id="vaccineForm" method="POST" action="{{ url_for('vaccine_design') }}">
+        <!-- Vaccine Name -->
+        <div class="form-group">
+            <label for="vaccine_name" class="align-items-center">Vaccine Name (Optional)</label>
+            <input type="text" id="vaccine_name" name="vaccine_name" class="form-control mt-2 d-none d-flex align-items-center" placeholder="Enter Your Vaccine Name">
+        </div>
+        <br>
+        <hr data-content="Select Options" class="hr-text">
+        <!-- Adjuvant Linker -->
+        <div class="form-group">
+            <label for="adjuvant_linker">Adjuvant Linker</label>
+            <select id="adjuvant_linker" name="adjuvant_linker" class="form-control" required>
+                <option value="">Select an option</option>
+                <option value="EAAAK">EAAAK</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" id="adjuvant_linker_other" name="adjuvant_linker_other" class="form-control mt-2 d-none" placeholder="Enter custom Adjuvant Linker">
+        </div>
+
+        <!-- Adjuvant -->
+        <div class="form-group">
+            <label for="adjuvant">Adjuvant</label>
+            <select id="adjuvant" name="adjuvant" class="form-control" required>
+                <option value="">Select an option</option>
+                <option value="MIKLKFGVFFTVLLSSAYANGTPQNITDLCAEYHNTQIHTLNDKIFSYTESLAGKREMAIITFKNGATFQVEVPGSQHIDSQKKAIERMKDTLRIAYLTEAKVEKLCVWNNKTPHAIAAISMAN">Cholera toxin subunit B (CTB)</option>
+                <option value="GIGDPVTCLKSGAICHPVFCPRRYKQIGTCGLPGTKCCKKP">Human β-defensin 2 (HBD2)</option>
+                <option value="MAENPNIDDLPAPLLAALGAADLALATVNDLIANLRERAEETRAETRTRVEERRARLTKFQEDLPEQFIELRDKFTTEELRKAAEGYLEAATNRYNELVERGEAALQRLRSQTAFEDASARAEGYVDQAVELTQEALGTVASQTRAVGERAAKLVGIELPGKAEAAGKKAQKAIAKAPAKKASAKKAPAKKAPAKKAAAKKVTQK">Heparin-binding hemagglutinin (HBHA)</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" id="adjuvant_other" name="adjuvant_other" class="form-control mt-2 d-none" placeholder="Enter custom Adjuvant">
+        </div>
+        <br>
+        <hr data-content="Select Options" class="hr-text">
+
+        <!-- B Cell Epitope -->
+        <div class="form-group">
+            <label for="b_cell_epitope">B Cell Epitope</label>
+            <textarea id="b_cell_epitope" name="b_cell_epitope" class="form-control mb-2" placeholder="Enter B Cell Epitopes, each on a new line"></textarea>
+        </div>
+
+        <!-- B Cell Linker -->
+        <div class="form-group">
+            <label>B Cell Linker</label>
+            <select id="b_cell_linker" name="b_cell_linker" class="form-control mb-2" disabled>
+                <option value="">Select an option</option>
+                <option value="GPGPG">GPGPG</option>
+                <option value="KK">KK</option>
+                <option value="EAAAK">EAAAK</option>
+                <option value="GGGGS">GGGGS</option>
+                <option value="other">Other</option>
+            </select>
+            <input id="b_cell_linker_other" type="text" name="b_cell_linker_other" class="form-control mb-2 d-none" placeholder="Enter custom B Cell Linker">
+        </div>
+        <br>
+        <hr data-content="Select Options" class="hr-text">
+
+        <!-- MHC Class I Epitope -->
+        <div class="form-group">
+            <label for="mhc_class_i_epitope">MHC Class I Epitope</label>
+            <textarea id="mhc_class_i_epitope" name="mhc_class_i_epitope" class="form-control mb-2" placeholder="Enter MHC Class I Epitopes, each on a new line"></textarea>
+        </div>
+
+        <!-- MHC Class I Linker -->
+        <div class="form-group">
+            <label>MHC Class I Linker</label>
+            <select id="mhc_class_i_linker" name="mhc_class_i_linker" class="form-control mb-2" disabled>
+                <option value="">Select an option</option>
+                <option value="AAY">AAY</option>
+                <option value="GGGS">GGGS</option>
+                <option value="GGGGS">GGGGS</option>
+                <option value="other">Other</option>
+            </select>
+            <input id="mhc_class_i_linker_other" type="text" name="mhc_class_i_linker_other" class="form-control mb-2 d-none" placeholder="Enter custom MHC Class I Linker">
+        </div>
+        <br>
+        <hr data-content="Select Options" class="hr-text">
+
+        <!-- MHC Class II Epitope -->
+        <div class="form-group">
+            <label for="mhc_class_ii_epitope">MHC Class II Epitope</label>
+            <textarea id="mhc_class_ii_epitope" name="mhc_class_ii_epitope" class="form-control mb-2" placeholder="Enter MHC Class II Epitopes, each on a new line"></textarea>
+        </div>
+
+        <!-- MHC Class II Linker -->
+        <div class="form-group">
+            <label>MHC Class II Linker</label>
+            <select id="mhc_class_ii_linker" name="mhc_class_ii_linker" class="form-control mb-2" disabled>
+                <option value="">Select an option</option>
+                <option value="GPGPG">GPGPG</option>
+                <option value="GGGGS">GGGGS</option>
+                <option value="other">Other</option>
+            </select>
+            <input id="mhc_class_ii_linker_other" type="text" name="mhc_class_ii_linker_other" class="form-control mb-2 d-none" placeholder="Enter custom MHC Class II Linker">
+        </div>
+        <br>
+        <hr data-content="Select Options" class="hr-text">
+        <!-- HIS-TAG -->
+        <div class="form-group">
+            <label for="his_tag">HIS-TAG</label>
+            <select id="his_tag" name="his_tag" class="form-control">
+                <option value="">Select an option</option>
+                <option value="HHHHH">Penta His-Tag</option>
+                <option value="HHHHHH">6 His-Tag</option>
+                <option value="HHHHHHH">7 His-Tag</option>
+                <option value="HHHHHHHH">8 His-Tag</option>
+                <option value="HHHHHHHHH">9 His-Tag</option>
+                <option value="HHHHHHHHHH">10 His-Tag</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" id="his_tag_other" name="his_tag_other" class="form-control mt-2 d-none" placeholder="Enter custom HIS-TAG">
+        </div>
+        <!-- HIS-TAG -->
+        <div class="form-group">
+            <label for="epitope_order">Epitope Order</label>
+            <select id="epitope_order" name="epitope_order" class="form-control" required>
+                <option value="bcell,mhc1,mhc2">B Cell, MHC I, MHC II</option>
+                <option value="mhc1,bcell,mhc2">MHC I, B Cell, MHC II</option>
+                <option value="mhc1,mhc2,bcell">MHC I, MHC II, B Cell</option>
+            </select>
+        </div>        
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </form>
+    {% if results %}
+    <div class="mt-5">
+        <h2>Results:</h2>
+        <div class="row mb-3">
+            <div class="col-12">
+                <button id="downloadDocx" class="btn btn-success" data-vaccine-name="{{ vaccine_name }}">Download All Combinations as Word Document</button>
+            </div>
+        </div>
+        <div class="row">
+            {% for result in results %}
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="text-center text-primary">Combination {{ loop.index }} For {{ vaccine_name }}</h5>
+                        <pre class="result-text" id="result-{{ loop.index }}">{{ result|safe }}</pre>
+                        <button class="btn btn-primary btn-sm mt-2" onclick="copyToClipboard('result-{{ loop.index }}')">
+                            Copy to Clipboard
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

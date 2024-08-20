@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaxiDB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom-modal.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-cyan">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="VaxiDB Logo" style="height: 90px;">
+        </a>
+        <a class="navbar-brand h1" href="{{ url_for('index') }}">VaxiDB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('search') }}">Vaccine Candidate Explorer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('vaccine_design') }}">Vaccine Designing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Custom Waiting Modal -->
+    <div id="waitingModalCustom" class="custom-modal">
+        <div class="custom-modal-content">
+            <div class="custom-modal-header">
+                <h5 class="custom-modal-title">Processing Request</h5>
+            </div>
+            <div class="custom-modal-body text-center">
+                <p>Please wait while we process your request. This may take a few moments.</p>
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <footer class="bg-cyan text-white text-center py-3">
+        <div class="container">
+            <p>© 2024 VaxiDB. All Rights Reserved.</p>
+            <p>Unique Visitors: {{ unique_visitors }}</p>
+            <p>Total Visits: {{ visit_count }}</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.umd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/xlsx.full.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vaccine_design.js') }}"></script>  
+
+
+    <script>
+        $(document).ready(function () {
+            var currentPath = window.location.pathname;
+            $('#navbarNav .nav-link').each(function () {
+                var linkPath = $(this).attr('href');
+                if (linkPath === currentPath || linkPath === currentPath + '/') {
+                    $(this).addClass('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

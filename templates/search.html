@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center text-white bg-primary py-5">
+    <div class="container">
+        <h1 class="text-primary font-weight-bold">Vaccine Candidate Explorer</h1>
+        <p class="text-primary font-weight-bold">Find Potential Vaccine Candidates</p>
+    </div>
+</section>
+
+<!-- Vaccine Search Section -->
+<div class="container mt-5" id="vaccine-search-section">
+    <h2 class="text-center mb-4">Search Proteins</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Search</h5>
+                    <form id="searchForm">
+                        <div class="form-group">
+                            <label for="proteinId">UniProt protein ID</label>
+                            <input type="text" class="form-control" id="proteinId" placeholder="Enter Protein ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="proteinName">Protein Name</label>
+                            <input type="text" class="form-control" id="proteinName" placeholder="Enter Protein Name">
+                        </div>
+                        <div class="form-group" id="proteomeSelectDivFromSearch" style="display:none;">
+                            <label for="proteomeSelectFromSearch">Proteome ID and Organism Name</label>
+                            <select class="form-control" id="proteomeSelectFromSearch">
+                                <option value="">Select a proteome ID or organism name</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="proteomeId">Proteome ID (UPID)</label>
+                            <input type="text" class="form-control" id="proteomeId" placeholder="Enter Proteome ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="organismName">Organism Name</label>
+                            <input type="text" class="form-control" id="organismName" placeholder="Enter Organism Name">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                        <button type="button" id="resetButton" class="btn btn-secondary btn-lg">Reset</button>
+                    </form>
+                    <div id="results" class="mt-4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Select Organism Type</h5>
+                    <div class="form-group">
+                        <label for="organismType">Organism Type</label>
+                        <select class="form-control" id="organismType">
+                            <option value="">Select an organism type</option>
+                            <option value="virus">Virus</option>
+                            <option value="bacteria">Bacteria</option>
+                            <option value="parasite">Parasite</option>
+                            <option value="fungus">Fungus</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="proteomeSelectDiv" style="display:none;">
+                        <label for="proteomeSelect">Proteome ID and Organism Name</label>
+                        <select class="form-control" id="proteomeSelect">
+                            <option value="">Select a proteome ID or organism name</option>
+                        </select>
+                    </div>
+                    <div id="proteomeResults" class="mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Full Screen Div for Proteome Results -->
+<div class="full-screen-div" id="fullScreenDiv">
+    <button type="button" class="btn btn-secondary float-right my-3 mx-3" id="closeFullScreenDiv" style="margin:10px;">Close</button>
+    <div class="my-3 mx-3">
+        <label for="vaccineFilter">Vaccine Candidate Probability:</label>
+        <select id="vaccineFilter" class="form-control" style="display:inline-block; width:auto;">
+            <option value="">All</option>
+            <option value="Highly Probable">Highly Probable</option>
+            <option value="Probable">Probable</option>
+            <option value="Negative">Negative</option>
+        </select>
+        <br>
+        <br>
+        <label for="antigenFilter">Experimentally Validated Antigen:</label>
+        <select id="antigenFilter" class="form-control" style="display:inline-block; width:auto;">
+            <option value="">All</option>
+            <option value="YES">Yes</option>
+        </select>
+    </div>
+    <button type="button" class="btn btn-primary" id="downloadFullScreenResults" style="margin:10px;">Download Results</button>
+    <div id="fullScreenResults" class="mt-4"></div>
+</div>
+
+<!-- Full Screen Div for Search Results -->
+<div class="full-screen-div" id="searchFullScreenDiv">
+    <button type="button" class="btn btn-secondary float-right my-3 mx-3" id="closeSearchFullScreenDiv" style="margin:10px;">Close</button>
+    <div class="my-3 mx-3">
+        <label for="searchVaccineFilter">Vaccine Candidate Probability:</label>
+        <select id="searchVaccineFilter" class="form-control" style="display:inline-block; width:auto;">
+            <option value="">All</option>
+            <option value="Highly Probable">Highly Probable</option>
+            <option value="Probable">Probable</option>
+            <option value="Negative">Negative</option>
+        </select>
+        <br>
+        <br>
+        <label for="searchAntigenFilter">Experimentally Validated Antigen:</label>
+        <select id="searchAntigenFilter" class="form-control" style="display:inline-block; width:auto;">
+            <option value="">All</option>
+            <option value="YES">Yes</option>
+        </select>
+    </div>
+    <button type="button" class="btn btn-primary" id="downloadSearchFullScreenResults" style="margin:10px;">Download Results</button>
+    <div id="searchFullScreenResults" class="mt-4"></div>
+</div>
+{% endblock %}
